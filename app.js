@@ -22,10 +22,171 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+
+app.get('/getManagerData', function (req, res) {
+
+
+  // put the data in the database
+  // pulling in mysql
+  var mysql = require('mysql');
+   // set up a connection
+  var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "test",
+  password: ""
+  });
+
+
+
+// hold the data that we going to send back.
+var output = '';
+
+
+  con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT orderby, items FROM customerorders;", function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+
+
+    // looping over the records
+    for(var i=0; i< result.length; i++){
+        output = output + result[i].orderby + '---' + result[i].items + '<br>';
+    }
+
+     // return the output variable
+    res.send(output);
+  });
+});
+
+
+
+
+});
+
+app.post('/checkTheLogin', function (req, res) {
+
+   // catching the variables
+  var username = req.body.username;
+  var pass = req.body.password;
+
+  // put the data in the database
+  // pulling in mysql
+  var mysql = require('mysql');
+   // set up a connection
+  var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "test",
+  password: ""
+  });
+
+
+
+  con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT * FROM users WHERE username = '"+username+"' AND PASSWORD = '"+pass+"' LIMIT 1;", function (err, result, fields) {
+    if (result.length > 0){
+      console.log(result);
+      res.send(result[0].acctype);
+    } else {
+      res.send('NONE');
+    }
+
+    // return the account type back
+  });
+});
+
+
+
+
+});
+
+
+app.post('/putInDatabase', function (req, res) {
+
+  // catching the variables
+  var username = req.body.username;
+  var email = req.body.email;
+  var pass = req.body.password;
+  var address = req.body.address;
+  var acctype = req.body.acctype;
+
+  // put the data in the database
+  // pulling in mysql
+  var mysql = require('mysql');
+
+
+ // set up a connection
+  var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "test",
+  password: ""
+  });
+
+
+  con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  var sql = "INSERT INTO `test`.`users` (`username`, `email`, `password`, `address`, `acctype`) VALUES ('"+username+"', '"+email+"', '"+pass+"', '"+address+"', '"+acctype+"');";
+  console.log(sql);
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
+});
+  res.send('Data went to the database');
+
+
+})
+
+
+
+app.post('/completeCheckout', function (req, res) {
+
+  // catching the variables
+  var orderby = req.body.orderby;
+  var items = req.body.items;
+
+
+  // put the data in the database
+  // pulling in mysql
+  var mysql = require('mysql');
+
+
+ // set up a connection
+  var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "test",
+  password: ""
+  });
+
+
+  con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  var sql = "INSERT INTO `test`.`customerorders` (`orderby`, `items`) VALUES ('"+orderby+"', '"+items+"');";
+  console.log(sql);
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
+});
+  res.send('Data went to the database');
+
+
+})
+
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
