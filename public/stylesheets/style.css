@@ -6,3 +6,103 @@ body {
 a {
   color: #00B7FF;
 }
+
+.center-wrapper{
+  text-align: center;
+}
+.center-wrapper * {
+  margin: 0 auto;
+}
+
+
+.ui-grid-solo{
+    background-color: "black";
+    border-style:"solid";
+    border-width: 20px;
+
+
+
+    font-weight: bold;
+    text-align: left;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 30px;
+
+}
+
+
+.ui-grid-a{
+    background-color: "black";
+    border-style:"solid";
+border-width: 20px;
+
+
+
+    font-weight: bold;
+    text-align: left;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 30px;
+
+}
+
+.ui-grid-c{
+    background-color: "black";
+    border-style:"solid";
+border-width: 20px;
+
+
+
+    font-weight: bold;
+    text-align: left;
+    margin-left: 80px;
+    margin-right: 80px;
+    padding: 30px;
+
+}
+
+.text-center{
+  text-align:center;
+}
+
+.ui-footer {
+    position: absolute !important;
+    bottom: 0;
+    width: 100%;
+}
+/*
+.acctype {
+  text-align:left;
+}
+.left-wrapper {
+  text-align:left;
+}
+
+*/
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+.currentTemp{
+  font-size:120px;
+}
+
+.celsius{
+  font-size:120px;
+}

@@ -3,11 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+app.use(express.json());
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -60,8 +61,70 @@ var output = '';
   });
 });
 
+});
 
 
+app.post('/getManagerDataByDate', function (req, res) {
+
+  var fromdate  = req.param("fromdate");
+  var todate  = req.param("todate");
+
+
+  // put the data in the database
+  // pulling in mysql
+  var mysql = require('mysql');
+   // set up a connection
+  var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "test",
+  password: ""
+  });
+
+ 
+ // var sqlselect = "SELECT * FROM customerorders;"
+ // var sqlselect = "select * from customerorders WHERE ORDERDATE  between '"+fromdate+ "' and '"+ todate+"')";
+    var sqlselect = "select * from customerorders WHERE ORDERDATE  between '2021-01-01 00:00:00' and '2021-12-31 23:59:00';" ;
+ 
+  console.log(sqlselect);
+  con.connect(function(err) {
+  if (err) throw err;
+  con.query(sqlselect, function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+    res.send(result);
+  });
+});
+
+});
+
+
+
+app.post('/getDriverData', function (req, res) {
+
+
+  // put the data in the database
+  // pulling in mysql
+  var mysql = require('mysql');
+   // set up a connection
+  var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "test",
+  password: ""
+  });
+
+   var sqlselect = "select * from customerorders WHERE ORDERSTATUS = 'PENDING'"; 
+	
+  console.log(sqlselect);
+  con.connect(function(err) {
+  if (err) throw err;
+  con.query(sqlselect, function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+    res.send(result);
+  });
+});
 
 });
 
@@ -180,6 +243,35 @@ app.post('/completeCheckout', function (req, res) {
 
 })
 
+
+app.post('/updateorderstatus', function (req, res) {
+ 
+  // catching the variables
+  var get_id  = req.body.orderid;  
+  var newstatus =  req.body.newstatus;
+	
+  var mysql = require('mysql');
+  var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "test",
+  password: ""
+  });
+
+
+   con.connect(function(err) {
+    if (err) throw err;
+  
+ var sql = "update customerorders set orderstatus = '"+newstatus+"' WHERE id =  '"+get_id+"'"; 
+  console.log(sql);
+   
+  con.query(sql, function (err, result, fields) {
+    if (err) throw err;
+	console.log("status updated ");
+	res.send("Order Status Updated");
+  });
+});
+});
 
 
 // catch 404 and forward to error handler
