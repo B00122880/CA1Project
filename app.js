@@ -82,9 +82,9 @@ app.post('/getManagerDataByDate', function (req, res) {
   });
 
  
- // var sqlselect = "SELECT * FROM customerorders;"
+  var sqlselect = "SELECT * FROM customerorders  order by id;"
  // var sqlselect = "select * from customerorders WHERE ORDERDATE  between '"+fromdate+ "' and '"+ todate+"')";
-    var sqlselect = "select * from customerorders WHERE ORDERDATE  between '2021-01-01 00:00:00' and '2021-12-31 23:59:00';" ;
+ //   var sqlselect = "select * from customerorders WHERE ORDERDATE  between '2021-01-01 00:00:00' and '2021-12-31 23:59:00';" ;
  
   console.log(sqlselect);
   con.connect(function(err) {
