@@ -2,22 +2,11 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var session = require('express-session');
 var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var testRouter = require('./routes/test');
-
-
 
 var app = express();
-app.set('trust proxy', 1) // trust first proxy
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-   cookie: { secure: true, maxAge: 60000 }
-}))
 app.use(express.json());
 
 
@@ -33,7 +22,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/test', testRouter);
 
 
 app.get('/getManagerData', function (req, res) {
@@ -76,24 +64,6 @@ var output = '';
 });
 
 
-app.get('/checkIfTimeLeft', function (req, res) {
-
- 
-  var timeLeft = req.session.cookie.maxAge / 1000;
-  console.log(timeLeft);
-  
-  if(timeLeft < 1){
-      
-      res.send('expired');
-      
-  } else {
-      
-      res.send('ok');      
-  }
-  
-  
-});
-
 app.post('/getManagerDataByDate', function (req, res) {
 
   var fromdate  = req.param("fromdate");
@@ -112,41 +82,9 @@ app.post('/getManagerDataByDate', function (req, res) {
   });
 
 
-  //var sqlselect = "SELECT * FROM customerorders  order by id;"
- var sqlselect = "select * from customerorders WHERE ORDERDATE  between '"+fromdate+ "' and '"+ todate+"'";
-
-
-  console.log(sqlselect);
-  con.connect(function(err) {
-  if (err) throw err;
-  con.query(sqlselect, function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-    res.send(result);
-  });
-});
-
-});
-
-
-
-app.post('/getcustomerOrders', function (req, res) {
-
-var customerid  = req.body.customerid;
-
-  // put the data in the database
-  // pulling in mysql
-  var mysql = require('mysql');
-   // set up a connection
-  var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "test",
-  password: ""
-  });
-
-
-  var sqlselect = "SELECT * FROM customerorders  WHERE ORDERby = '"+customerid+"' order by id;"
+  var sqlselect = "SELECT * FROM customerorders  order by id;"
+ // var sqlselect = "select * from customerorders WHERE ORDERDATE  between '"+fromdate+ "' and '"+ todate+"')";
+ //   var sqlselect = "select * from customerorders WHERE ORDERDATE  between '2021-01-01 00:00:00' and '2021-12-31 23:59:00';" ;
 
   console.log(sqlselect);
   con.connect(function(err) {
@@ -159,6 +97,7 @@ var customerid  = req.body.customerid;
 });
 
 });
+
 
 
 app.post('/getDriverData', function (req, res) {
@@ -175,7 +114,7 @@ app.post('/getDriverData', function (req, res) {
   password: ""
   });
 
-   var sqlselect = "select * from customerorders WHERE ORDERSTATUS = 'GETTING READY'";
+   var sqlselect = "select * from customerorders WHERE ORDERSTATUS = 'PENDING'";
 
   console.log(sqlselect);
   con.connect(function(err) {
@@ -194,9 +133,6 @@ app.post('/checkTheLogin', function (req, res) {
    // catching the variables
   var username = req.body.username;
   var pass = req.body.password;
-  
-  req.session.username = username;
-  req.session.validSession = true;
 
   // put the data in the database
   // pulling in mysql
@@ -274,13 +210,10 @@ app.post('/putInDatabase', function (req, res) {
 app.post('/completeCheckout', function (req, res) {
 
   // catching the variables
-	var orderby = req.body.orderby;
-	var items = req.body.items;
-	var deladdress = req.body.address;
+  var orderby = req.body.orderby;
+  var items = req.body.items;
 
- 
 
-  
   // put the data in the database
   // pulling in mysql
   var mysql = require('mysql');
@@ -298,9 +231,8 @@ app.post('/completeCheckout', function (req, res) {
   con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-//  var sql = "INSERT INTO `test`.`customerorders` (`orderby`, `items`) VALUES ('"+orderby+"', '"+items+"');";
-  var sql = "INSERT INTO `test`.`customerorders` (`orderby`, `items`, `deliveryaddress`) VALUES ('"+orderby+"', '"+items+"','"+deladdress+"');";
-console.log(sql);
+  var sql = "INSERT INTO `test`.`customerorders` (`orderby`, `items`) VALUES ('"+orderby+"', '"+items+"');";
+  console.log(sql);
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("1 record inserted");
@@ -342,70 +274,6 @@ app.post('/updateorderstatus', function (req, res) {
 });
 
 
-
-app.get('/getProducts', function (req, res) {
-   
-   
-  // put the data in the database
-  // pulling in mysql
-  var mysql = require('mysql');
-   // set up a connection  
-  var con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "test",
-  password: ""
-  });
-  
-  
-    con.connect(function(err) {
-  if (err) throw err;
-  con.query("SELECT * from products", function (err, result, fields) {
-    if (err) throw err;
-   
-    
-    var output = '';
-    for(var i=0; i < result.length; i++){
-        
-
-       output = output + `
-       
-       <img src="`+result[i].picturepath+`" style="height:100px;width:100px">
-       
-       <div class="ui-field-contain">
-            <label for="select-native-2">`+result[i].productname+`</label>
-           
-        <select id="`+result[i].productname+`_qty" name="select-native-2" id="select-native-2" data-mini="true">
-                <option value=""></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-         <br>   
-         Price: `+result[i].cost+`   
-        
-        <br>
-        <button data-icon="plus" id="addtocart" class="ui-btn ui-btn-b ui-btn-inline"  onclick="addToCart('`+result[i].productname+`_qty', `+result[i].cost+`)"> Add To Cart </button>
-        <button id="deleteProduct" class="ui-btn ui-btn-b ui-btn-inline" onclick="deleteProduct('`+result[i].productname+`_qty')">Delete product </button>
-        </div>    
-        `;
-
-    }
-    
-
-    
-    res.send(output);
-    
-    
-    
-  });
-});
-
-  
-  
-  
-});
 
 
 app.post('/getProductsData', function (req, res) {

@@ -6,19 +6,18 @@
 
  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="javascripts/index.js"></script>
 
 <div data-role="page" id="homepage">
 
 	<div data-role="header" data-theme="b">
-		
+		<a href="index.html" >DoNuts</a>
 
-		<h1>DoNuts</h1>
-		
+		<h1>HOME</h1>
+		<a href="login.html">Logout</a>
 
 		<div data-role="navbar">
 			<ul>
-				<li><a href="" class="ui-btn-active" data-icon="home"  style="background: grey; border:grey; color: white;">Home</a></li>
+				<li><a href="" class="ui-btn-active" data-icon="home">Home</a></li>
 				<li><a href="#login" data-icon="user">Login</a></li>
 				<li><a href="#register" data-icon="action">Register</a></li>
 			</ul>
@@ -35,62 +34,24 @@
 
 
 		</div>
-		
-		
 
 		<div class="ui-grid-c">
 				<div class="ui-block-a">
-				<div class="myDIV">
-					<img class="imageproduct" title=" Chocolate doughnut €1" src="/images/chocolate.jpg" /></a><br></div>
-					<div class="hide">Chocolate Doughnut €1</div>
+					<img src="/images/donut1.jpg" /></a><br>
 				</div>
 
 				<div class="ui-block-b">
-					<div class="myDIV">
-					<img class="imageproduct" title="Plain Ring doughnut €1" src="/images/ring.jpg" /></a><br></div>
-					<div class="hide">Plain Ring Doughnut €1</div>
+					<img src="/images/donut4.jpg" /></a><br>
 				</div>
 
 				<div class="ui-block-c">
-					<div class="myDIV">
-					<img class="imageproduct" title="Lemon doughnut €1" src="/images/lemon.jpg" /></a><br></div>
-					<div class="hide">Lemon Doughnut €1</div>
+					<img src="/images/donut1.jpg" /></a><br>
 				</div>
 
 				<div class="ui-block-d">
-					<div class="myDIV">	
-					<img class="imageproduct" title=" Iced doughnut €2" src="/images/iced.jpg" /></a><br></div>
-					<div class="hide">Iced Doughnut €2</div>
+					<img src="/images/donut4.jpg" /></a><br>
 				</div>
 		 </div>
-		 
-		 
-		 <div class="ui-grid-c">
-				<div class="ui-block-a">
-				<div class="myDIV">
-					<img class="imageproduct" title="Sprinkle doughnut €2" src="/images/sprinkle.jpg" /></a><br></div>
-					<div class="hide">Sprinkle Doughnut €2</div>
-				</div>
-
-				<div class="ui-block-b">
-					<div class="myDIV">
-					<img class="imageproduct" title="Jam doughnut €2" src="/images/jam.jpg" /></a><br></div>
-					<div class="hide">Jam Doughnut €2</div>
-				</div>
-
-				<div class="ui-block-c">
-					<div class="myDIV">
-					<img class="imageproduct" title="Fanta 330ml €1" src="/images/fanta.jpg" /></a><br></div>
-					<div class="hide">Fanta 330ml €1</div>
-				</div>
-
-				<div class="ui-block-d">
-					<div class="myDIV">
-					<img class="imageproduct"  title="Sprite 330ml €1" src="/images/sprite.jpg" /></a><br></div>
-					<div class="hide">Sprite 330ml €1</div>
-				</div>
-		 </div>
-
 
 
 	</div><!-- /content -->
@@ -108,14 +69,13 @@
 <div data-role="page" id="register" data-add-back-btn="true" >
 
 	<div data-role="header" data-theme="b">
-		<a href = "#" class = "ui-btn-left" data-rel = "back" data-icon="back">Back</a>
-		<h1>DoNuts - Register</h1>
+		<h1>Register</h1>
 
 			<div data-role="navbar" data-theme="a">
 			<ul>
 			  <li><a href="/"  data-icon="home">Home</a></li>
 			  <li><a href="#login" data-icon="user">Login</a></li>
-			  <li><a href="#register" data-icon="action" data-theme="a" class="ui-btn-active" style="background: grey; border:grey; color: white;">Register</a></li>
+			  <li><a href="#register" data-icon="action" data-theme="a" class="ui-btn-active">Register</a></li>
 			</ul>
 			</div>
 	</div><!-- /header -->
@@ -123,33 +83,31 @@
 	<div role="main" class="ui-content" data-theme="b">
 
 			<div class="ui-grid-solo" class="ui-block-b" data-theme="b">
-			  <h1>Register</h1>
-				<p>Please fill in this form to create an account.</p>
-				<hr>
+			  <p>Please fill out the form below to create an account</p>
+
 
 					<label for="username">Username:</label>
-					<input type="text" placeholder="Enter Username" id="username"/> <br>
+					<input type="text" id="username"/> <br>
 
 					<label for="email">Email:</label>
-					<input type="text" placeholder="Enter Email" id="email"/> <br>
+					<input type="text" id="email"/> <br>
 
 					<label for="password">Password:</label>
-					<input type="text"  placeholder="Enter Password" id="password"/> <br>
+					<input type="text" id="password"/> <br>
 
 					<label for="address">Address:</label>
-					<input type="text"  placeholder="Enter Address" id="address"/> <br>
+					<input type="text" id="address"/> <br>
 
-					
+					<label for="acctype"  >Account Type:</label>
+					<input type="text" id="acctype" >
+
 					<label><input type="radio" name="atype" value="customer"  checked="checked">Customer</label>
 					<label><input type="radio" name="atype" value="driver">Driver</label>
 					<label><input type="radio" name="atype" value="manager">Manager</label>
 
 
 
-			<button id="submitbutton" class="ui-btn ui-btn-b ui-btn-inline"> REGISTER </button>
-			<div class="container signin">
-				<p>Already have an account? <a href="#login">Sign in</a>.</p>
-			</div>
+			<button id="submitbutton" class="ui-btn ui-btn-b ui-btn-inline"> Submit Button </button>
 
 			</div>
 
@@ -218,10 +176,10 @@
 
 	<div data-role="header"  data-theme="b">
 
-		<a href = "#" class = "ui-btn-left" data-rel = "back" data-icon="back">Back</a>
+<a href = "#" class = "ui-btn-left" data-rel = "back" data-icon="back">Back</a>
 
 
-		<h1>DoNuts - Login</h1>
+		<h1>Login</h1>
 
 
 
@@ -234,7 +192,7 @@
 			<ul>
 			  
 			  <li><a href="/"  data-icon="home">Home</a></li>
-			  <li><a href="#login" data-icon="user" class="ui-btn-active" data-theme="a" style="background: grey; border:grey; color: white;">Login</a></li>
+			  <li><a href="#login" data-icon="user" class="ui-btn-active" data-theme="a">Login</a></li>
 			  <li><a href="#register" data-icon="action"  >Register</a></li>
 			  
 			</ul>
@@ -245,23 +203,18 @@
 
 			<div class="ui-grid-solo" class="ui-block-b" data-theme="b">
 
-					<h1>Sign In</h1>
-					<h2>Please SIGN IN to place an order or <a href="#register">REGISTER </a> to create an account</h2>
+
+					<p>Please login to place an order....</p>
 
 
-					  Username <input type="text" placeholder="Enter Username" id="loginUsername"/> <br>
-					  Password <input type="text" placeholder="Enter Password" id="loginPassword"/> <br>
+					  Username <input type="text" id="loginUsername"/> <br>
+					  Password <input type="text" id="loginPassword"/> <br>
 
 
-					   <button id="loginbutton" class="ui-btn ui-btn-b ui-btn-inline">SIGN IN</button>
-						
-			
+					   <button id="loginbutton" class="ui-btn ui-btn-b ui-btn-inline"> Login Button </button>
 
-					<div class="container signin">
-				<p>Don't have an account? <a href="#register">Register</a></p>
 			</div>
-				
-</div>
+
 
 	<script>
 			// when the submitbutton is clicked
@@ -281,8 +234,6 @@
 				alert("please enter a password");
 			  }
 
-			  
-			var accountType = checkTheLogin(un, pw);
 
 			  $.post( "/checkTheLogin", { username: un, password: pw })
 				  .done(function( data ) {
@@ -336,11 +287,12 @@
 <div data-role="page" id="customerdash">
 
 	<div data-role="header"  data-position="fixed"  data-theme="b">
-		<a href = "#" class = "ui-btn-left" data-rel = "back" data-icon="back">Back</a>
-		<h1>DoNuts - Customer Dash</h1>
+  
+		<h1>Customer Dash</h1>
 			<div data-role="navbar"  data-theme="a">
-				<ul>					
-					<li><a href="/" class="ui-btn" data-icon="home">Home</a></li>
+				<ul>
+					<li><a href = "#" class = "ui-btn" data-rel = "back"data-icon="back">Back</a></li>
+					<li><a href="/" class="ui-btn-active" data-icon="home">Home</a></li>
 					<li><a href="#login" data-icon="user">Login</a></li>
 					<li><a href="#register" data-icon="action">Register</a></li
 				</ul>
@@ -351,13 +303,17 @@
 	<div role="main" class="ui-content">
 		<div class="ui-grid-solo">
 			<div class="ui-block-a">
-			
-<button class="showdiv" id="listthiscust">Show Previous Orders</button>
-</p> 
-		<p><button class="hidediv"  id="listthiscust">Hide Previous Orders</button>	
-			 <div >
-			 <table id="Table" class="divdemo"> 
-							
+	
+				<h2>Please add your products to the cart and click CHECKOUT below</h2>
+					
+
+			 <div id="productdata"> </div>
+			 
+				<button id="goToCheckout" class="ui-btn ui-btn-b ui-btn-inline" data-theme="c"  style="background: pink; color: white;"> CHECKOUT</button> 		
+			 
+   
+			 <table id="Table"> 
+							 <caption><H3>YOUR PREVIOUS ORDERS</H3></caption>
 								  <thead>
 								  <th>ID</th>
 								  <th>Name</th>
@@ -369,46 +325,27 @@
 								</thead>
 								<tbody id="tableofcustorders"></tbody>
 								</table>
-			
-				<h2>Please add your products to the cart and click CHECKOUT below</h2>
-					
-</div>
-			 <div id="productdata"> </div>
-			 
-				<button id="goToCheckout" class="ui-btn ui-btn-b ui-btn-inline" data-theme="c"  style="background: pink; color: white;"> CHECKOUT</button> 		
-			 
-			
 	
-		
+	<button id="listthiscust" class="ui-btn ui-btn-b ui-btn-inline"> List This Customers Orders  </button>
    
 			</div><!-- /ui-block-a -->
 
 		</div><!-- /ui-grid-solo -->	
  <script>
- 
-
-   $(document).ready(function() {
-     $(".hidediv").click(function () {
-     $(".divdemo").hide("slow");
-    });
-
-     $(".showdiv").click(function () {
-     $(".divdemo").show(2000);
-    });
-
- 
- });
-		
-
-$( "#listthiscust" ).click(function() {		 
+		 
+		 
+	$( "#listthiscust" ).click(function() {		 
 		// get the persons username 
-	var thiscust = $('#loginUsername').val();
-			
+ var thiscust = $('#loginUsername').val();
+	alert(thiscust);	
+		
+//		thiscust =  'customer';  
+ 
 	$.post( "/getcustomerOrders", { customerid:thiscust })
 		.done(function( data ) {
             let res = '';
 			var runningTotal = 0;
-			var orderTotal = 0;
+		var orderTotal = 0;
 			
             data.forEach(data1 => {
 					
@@ -433,7 +370,7 @@ $( "#listthiscust" ).click(function() {
 		})
       $('#tableofcustorders').html(res);
 	 });
-}); 
+ }); 	 
         $.get( "/getProducts", function( data ) {
               
               $("#productdata").html(data);
@@ -461,45 +398,33 @@ $( "#listthiscust" ).click(function() {
 <div data-role="page" id="checkoutreview" >
 
 	<div data-role="header" data-theme="b">
-	<a href = "#" class = "ui-btn-left" data-rel = "back" data-icon="back">Back</a>
-	
-		<h1>DoNuts - Review your order</h1>
+	<a href="#" data-icon="back" data-rel="back" data-iconpos="notext"></a>
+		<h1>Review your order</h1>
 	</div><!-- /header -->
 
 	
-	<div data-role="navbar" data-theme="a">
+	<div data-role="navbar" data-theme="b">
 			<ul>
-				<li><a href="/"    data-icon="home">Home</a></li>
+				<li><a href="/" class="ui-btn-active" data-icon="home">Home</a></li>
 				<li><a href="#login" data-icon="user">Login</a></li>
 				<li><a href="#register" data-icon="action">Register</a></li>
 			</ul>
 		</div>
 	<div role="main" class="ui-content">
-	
-	<div class="ui-grid-solo">
-			<div class="ui-block-a">
-			
-			<h2>Order Details</h2>
+
           <div id="products">
-		  
-		  
-		    
-		  
-		  
           </div>
 			<div>		  
 					
 					<br>
-					<strong><label for="deliveryaddress">DELIVERY ADDRESS:</strong></label>
+					<strong><label for="deliveryaddress">DELIVERY ADDRESS:</label></strong>
 					<input type="text" id="deliveryaddress" placeholder="please enter a delivery address"/><br>
+
 					
 					
 					
-					
-         <button id="insertintodb"  class="ui-btn ui-btn-b ui-btn-inline" data-theme="c"  style="background: blue; color: white;">Complete Checkout</button>
-		</div>
-		</div>
-		</div>
+         <button id="insertintodb">Complete Checkout</button>
+</div>
 
 <script>
 $( "#insertintodb" ).click(function() {
@@ -553,13 +478,10 @@ $( "#insertintodb" ).click(function() {
             // add it on to our running total. 
             total = total + itemTotal;
             
-            $('#products').append(cartItems[i] + '<br><br>');
-			
-
-			
+            $('#products').append(cartItems[i] + '<br>');
         }
         
-       $('#products').append("Total Cost of Order: €"+total);
+       $('#products').append("Total cost of order: "+total);
 
 			// move to to the checkout review
 			window.location="/#checkoutreview";
@@ -616,7 +538,7 @@ function addToCart(itemName,cost){
 </script>
 
 
-  
+
 	</div><!-- /content -->
 
 	<div data-role="footer" data-position="fixed" data-theme="b">
@@ -636,7 +558,7 @@ function addToCart(itemName,cost){
 <div data-role="page" id="managerpage">
 
 	<div data-role="header" data-theme="b">
-		<h1>DoNuts - Manager</h1>
+		<h1>Manager</h1>
 
 		  <div data-role="navbar">
 			  <ul>
@@ -649,17 +571,16 @@ function addToCart(itemName,cost){
 
 	<div role="main" class="ui-content">
 		  <div class="ui-grid-solo" class="ui-block-b" data-theme="b">
-			<h1>Reports</h1>
-			<p>Please select the date range for your report</p>
+			<p>Create Your Reports</p>
+			<p>Please select the dates for your report</p>
 
 
 
 				<div id="managerInput">
-				
-				<p> From Date: <input type="text" id="fromdatepicker">
-				<p> To Date: <input type="text" id="todatepicker">
-				
-				
+				  <label for="from">From</label>
+				  <input type="text" id="fromdatepicker" name="from">
+				  <label for="to">to</label>
+				  <input type="text" id="todatepicker" name="to">
 				</div>
 
 				<div class="img-container">
@@ -672,24 +593,30 @@ function addToCart(itemName,cost){
 					  <th>Date</th>
 					  <th>Total</th>
 					  <th>Delivery Address</th>
-					  <th>Cancel Order</th>
 					</thead>
 					<tbody id="tableoforders"></tbody>
 					</table>
 
 
 				<button id="listcustorders" class="ui-btn ui-btn-b ui-btn-inline"> List Orders  </button>
-				<div>
-					<p id="myTotal">Total: </p>
-				</div>
 			</div>
 	      </div>
-			
+			<div class="ui-grid-a">
+				  <div class="ui-block-a">
+					<div id="canceldel">
+					 <input type="text" id="idtocancel" name="cancel" placeholder="Enter item ID to CANCEL">
+					</div>
+				  </div>
+				  <div class="ui-block-b">
+					 <button id="cancelorder" class="ui-btn ui-btn-b ui-btn-inline " >CANCEL ORDER </button>
+				  </div>
+
+			</div>
 
 <script>
     $( function() {
-        $( "#fromdatepicker" ).datepicker({ dateFormat: 'yy-mm-dd'});
-        $( "#todatepicker" ).datepicker({ dateFormat: 'yy-mm-dd'});
+        $( "#fromdatepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
+        $( "#todatepicker" ).datepicker({ dateFormat: 'dd-mm-yy' });
       } );
 
       </script>
@@ -701,9 +628,8 @@ $( "#listcustorders" ).click(function(event) {
 
 	var dateisValid = true;
 
-    var dateFromVar = $('#fromdatepicker').val();
-    var dateToVar = $('#todatepicker').val();
-	
+    var dateFromVar = $('#fromdatepicker').datepicker('getDate');
+    var dateToVar = $('#todatepicker').datepicker('getDate');
 
     if (dateFromVar == null) {
         alert("Please enter a From Date ");
@@ -723,10 +649,10 @@ $( "#listcustorders" ).click(function(event) {
 
 function displaymgrorders(){
 
-    var dateFromVar = $('#fromdatepicker').val();
-    var dateToVar = $('#todatepicker').val();
-	
-	var runningTotal = 0;
+    var dateFromVar = $('#fromdatepicker').datepicker('getDate');
+    var dateToVar = $('#todatepicker').datepicker('getDate');
+
+   var runningTotal = 0;
     var orderTotal = 0;
     
 	$.post( "/getManagerDataByDate", { fromdate  : dateFromVar, todate  : dateToVar })
@@ -751,30 +677,38 @@ function displaymgrorders(){
             }
 					
 			                         // qty           *        itemCost
-            res += `<tr><td>${data1.id}</td><td>${data1.orderby}</td><td>${data1.orderstatus}</td><td>${data1.items}</td><td>${data1.orderdate}</td><td>${orderTotal}</td><td>${data1.deliveryaddress}</td><td><button onclick="cancelOrder(${data1.id})">Cancel Order</button></td></tr>`
+            res += `<tr><td>${data1.id}</td><td>${data1.orderby}</td><td>${data1.orderstatus}</td><td>${data1.items}</td><td>${data1.orderdate}</td><td>${orderTotal}</td><td>${data1.deliveryaddress}</td></tr>`
 			runningTotal = Number(runningTotal) +  Number(orderTotal);
 			orderTotal = 0
 		})
       $('#tableoforders').html(res);
 	  
-	//    $("#myTotal").append(runningTotal);
-	  
-	  $("#myTotal").html(('Total :' + runningTotal));
 	 });
 }
 
 
-function cancelOrder(cancelID){
-		var mystatus = "CANCELLED";
+$( "#cancelorder" ).click(function(event) {
+ event.preventDefault();
 
-			
-			 $.post( "/updateorderstatus", { orderid : cancelID, newstatus : mystatus })
-				 .done(function( data ) {
-					 alert(data);
-					 displaymgrorders();
-			 });
+ var idIsValid = true;
+   var cancelId  = $('#idtocancel').val();
 
-		}
+   if (cancelId  == "") {
+       alert("Please enter a Order ID to Cancel");
+       idIsValid = false;
+   }
+
+ if (idIsValid ==  true){
+     var mystatus = "CANCELLED";
+
+     $.post( "/updateorderstatus", { orderid  : cancelId, newstatus : mystatus })
+         .done(function( data ) {
+             alert(data);
+		displaymgrorders();
+     });
+ };
+});
+
 
 
 </script>
@@ -797,8 +731,7 @@ function cancelOrder(cancelID){
 <div data-role="page" id="driverpage">
 
 	<div data-role="header" data-theme="b">
-	<a href = "#" class = "ui-btn-left" data-rel = "back" data-icon="back">Back</a>
-		<h1>DoNuts - Driver</h1>
+		<h1>Driver</h1>
 
 		<div data-role="navbar">
 			<ul>
@@ -811,17 +744,19 @@ function cancelOrder(cancelID){
 	<div role="main" class="ui-content">
 		<div class="ui-grid-a">
 				<div class="ui-block-a">
-					<img src="/images/weather.jpg" />
-				</div>
-				<div class="ui-block-b">
-					<h1 >Current Weather in Dublin: </h1>
-					<h2>Temperature: <span class="currentTemp"></span><span class="celsius">&#8451; </span><h2>
-					<img class="iconDiv" id=myimg></img>
-					<h2><p id="myarea">Description: </p></h2>
+				  <img src="/images/weather.jpg" /></div>
+				  <div class="ui-block-b">
+					<h2 >The current temperature in Dublin: <span class="currentTemp"></span><span class="celsius">&#8451; </span><h2>
 				</div>
 		</div>
 		
+		<div class="iconDiv"> 
+			<img id=myimg></img>
+		</div>
 		
+		<div class="DesDiv"> 
+			<p></p>
+		</div>
 		
 <div class="weatherWidget" ></div>
 
@@ -833,17 +768,24 @@ function cancelOrder(cancelID){
 						<th>Name</th>
 						<th>Status</th>
 						<th>Order</th>
-						<th>Date</th>						
+						<th>Date</th>
+						<th>Total</th>
 						<th>Delivery Address</th>
-						<th>Mark Delivered</th>
 					</thead>
 					<tbody id="listdriverorders"></tbody>
 				</table>
 			</div>
 		</div>
 
-		
-				
+		<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<div id="deliver">
+					<input type="text" id="idtodeliver" name="deliver" placeholder="Enter item ID to mark as delivered">
+					</div>
+				</div>
+				<div class="ui-block-b">
+					<button id="delivercustorder" class="ui-btn ui-btn-b ui-btn-inline " >MARK DELIVERED </button>
+				</div>
 
 		</div>
 
@@ -852,18 +794,43 @@ function cancelOrder(cancelID){
 
   
   
-  
+  <script>
+   window.weatherWidgetConfig =  window.weatherWidgetConfig || [];
+   window.weatherWidgetConfig.push({
+       selector:".weatherWidget",
+       apiKey:"SC8PG9ZXR2ZH7HTP3LU5NDZ36&include=alerts%2Ccurrent", //Sign up for your personal key
+       location:"Dublin, Ireland", //Enter an address
+       unitGroup:"metric", //"us" or "metric"
+       forecastDays:3, //how many days forecast to show
+       title:"Dublin, Ireland", //optional title to show in the 
+       showTitle:true, 
+       showConditions:true
+   });
+   
+     (function() {
+   var d = document, s = d.createElement('script');
+   s.src = 'https://www.visualcrossing.com/widgets/forecast-simple/weather-forecast-widget-simple.js';
+   s.setAttribute('data-timestamp', +new Date());
+   (d.head || d.body).appendChild(s);
+   })();
+   
+   </script>
 <script>
 
 	$.getJSON( "http://api.weatherstack.com/current?access_key=85c210d9166e7bc27abd8c095513c9de&query=Dublin", function( json ) {
 
 		$('.currentTemp').html(json.current.temperature);
 
-			var icon_name = json.current.weather_icons[0];	
-			var wea_desc  = json.current.weather_descriptions[0];
-			$("#myimg").attr("src", icon_name);
-			$("#myarea").append(wea_desc);
+			var icon_name = json.current.weather_icons[0];
 				
+				var wea_desc  = json.current.weather_descriptions[0];
+				
+			$("#myimg").attr("src", icon_name);
+			
+			$(".DesDiv p").html(wea_desc);
+				
+		//	alert(wea_desc);
+	
 	});
 
 
@@ -876,26 +843,37 @@ function cancelOrder(cancelID){
 
 			  let res = '';
 			  data.forEach(data1 => {
-				res += `<tr><td>${data1.id}</td><td>${data1.orderby}</td><td>${data1.orderstatus}</td><td>${data1.items}</td><td>${data1.orderdate}</td>$<td>${data1.deliveryaddress}</td><td><button onclick="updateStatus(${data1.id})" >Mark Delivered</button></td></tr>`
+				res += `<tr><td>${data1.id}</td><td>${data1.orderby}</td><td>${data1.orderstatus}</td><td>${data1.items}</td><td>${data1.orderdate}</td><td>${data1.totalprice}</td><td>${data1.deliveryaddress}</td></tr>`
 			  })
 			  $('#listdriverorders').html(res)
 			});
 
 		  }
 
-		function updateStatus(deliveryID){
-		var mystatus = "COMPLETE";
 
-			 $.post( "/updateorderstatus", { orderid  : deliveryID, newstatus : mystatus })
+
+
+		$( "#delivercustorder" ).click(function(event) {
+		 event.preventDefault();
+
+		 var idIsValid = true;
+		   var deliverId  = $('#idtodeliver').val();
+
+		   if (deliverId   == "") {
+			   alert("Please enter a Order ID to Complete");
+			   idIsValid = false;
+		   }
+
+		 if (idIsValid ==  true){
+			 var mystatus = "COMPLETE";
+
+			 $.post( "/updateorderstatus", { orderid  : deliverId, newstatus : mystatus })
 				 .done(function( data ) {
 					 alert(data);
 					loadorders();
 			 });
-		
-	
-		
-		
-		}
+		 };
+		});
 
 
   </script>
