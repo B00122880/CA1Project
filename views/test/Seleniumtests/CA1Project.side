@@ -1,0 +1,21 @@
+{
+  "id": "081606a7-319e-4514-a201-5b5bb3087313",
+  "version": "2.0",
+  "name": "CA1Project",
+  "url": "",
+  "tests": [{
+    "id": "b56d1483-76b8-4f21-813c-b635e077a8af",
+    "name": "Untitled",
+    "commands": []
+  }],
+  "suites": [{
+    "id": "4a651c3f-117f-449b-84e6-449e483899f2",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["b56d1483-76b8-4f21-813c-b635e077a8af"]
+  }],
+  "urls": [],
+  "plugins": []
+}

@@ -183,3 +183,15 @@ a:visited { color: green; }
   display: block;
   color: grey;
 }
+
+
+.table-container
+{
+	width: 100%;
+	overflow-y: auto;
+	_overflow: auto;
+	margin: 0 0 1em;
+}
+.fontsize{
+	font-size:10px;
+}

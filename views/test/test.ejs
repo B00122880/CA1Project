@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.1.css">
+  </head>
+  <body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.1.js"></script>
+    
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    
+    <script src="javascripts/index.js"></script>
+    
+    
+    <script>
+    
+      
+        // checking the customer works with the database
+        var data = checkTheLogin('customer', '1');
+        
+        QUnit.test('Checking if a customer', function(assert) {
+        
+          // first parm - what we are testing
+          // second parm - what we expect to get
+          assert.equal(data, 'customer', '');
+        });
+        
+       
+   
+   // Checking time remaining 
+        var myTime  = checkTime();
+        
+        QUnit.test('Checking Time Left', function(assert) {
+        
+          // first parm - what we are testing
+          // second parm - what we expect to get
+          assert.equal(myTime, 'ok', '');
+        });
+		
+		
+		// Checking the products 
+        var CheckProd = getTheProducts();
+		var n = CheckProd.includes("chocolate");
+        QUnit.test('Checking The Product Page', function(assert) {             
+			assert.equal(n, true, '');
+        });
+		
+		// Checking the products 
+        var CheckDrive = getTheDriverData();
+		var d = false;
+		var thisUser = '';
+	   
+	     CheckDrive.forEach(data1 => {
+				if (data1.orderby.includes("customer")){
+					d = true;
+				}
+			  })
+		
+	   
+			QUnit.test('Checking The Driver Page ', function(assert) {
+			assert.equal(d, true, '');
+        });
+				
+    </script>
+</body>
+</html>
